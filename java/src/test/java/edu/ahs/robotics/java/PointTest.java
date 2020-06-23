@@ -31,4 +31,13 @@ public class PointTest {
 
 
     }
+
+    @Test
+    public void distanceToPoint() {
+        Point a = new Point (1,1);
+        Point b = new Point (6,13);
+        assertEquals(13, a.distanceToPoint(b),.000001);
+    }
+
+
 }

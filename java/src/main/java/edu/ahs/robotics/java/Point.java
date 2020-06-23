@@ -55,4 +55,16 @@ public class Point {
         this.x=x;
         this.y=y;
     }
+    public double distanceToPoint(Point other){
+        double deltaA = x - other.getX();
+        double deltaB = y - other.getY();
+        double distance = Math.sqrt(deltaA*deltaA+deltaB*deltaB);
+        return distance;
+
+    }
+
+    public Point closestPoint(Point[ ] points){
+    Point point1 =
+    }
+
 }
