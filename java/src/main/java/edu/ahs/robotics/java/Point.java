@@ -64,7 +64,29 @@ public class Point {
     }
 
     public Point closestPoint(Point[ ] points){
-    Point point1 =
+
+    Point closestPoint = points[0];
+        for (int i = 1; i < points.length; i++) {
+            if (this.distanceToPoint(points[i]) < this.distanceToPoint(closestPoint)){
+                closestPoint = points[i];
+            }
+        }
+
+    return closestPoint;
+
+    }
+
+    public static double distanceBetweenTwoPoints(Point a, Point b){
+        double deltaX = b.getX() - a.getX();
+        double deltaY = b.getY() - a.getY();
+        double distanceBetweenTwoPoints = Math.sqrt(deltaX*deltaX+deltaY*deltaY);
+    return distanceBetweenTwoPoints;
+
+    }
+
+    public static Point midPoint(Point a, Point b){
+        Point midPoint = new Point ((a.x + b.x)/2, (a.y+b.y)/2);
+        return midPoint;
     }
 
 }

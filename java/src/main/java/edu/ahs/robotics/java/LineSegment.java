@@ -28,5 +28,8 @@ public class LineSegment {
 
     }
 
+    public Point interpolate(double distanceFromFirstPoint){
+
+    }
 
 }
