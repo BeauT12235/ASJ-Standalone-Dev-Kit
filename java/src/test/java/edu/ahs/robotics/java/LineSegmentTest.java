@@ -20,4 +20,16 @@ public class LineSegmentTest {
                 assertEquals(pointsExpected[i].getY(),pointsActual[i].getY(),0.000001);
         }
     }
+
+    @Test
+    public void interpolate() {
+        Point a = new Point(1,1);
+        Point b = new Point(4,5);
+        LineSegment ls = new LineSegment(a,b);
+        Point pointActual = ls.interpolate(2);
+        Point pointExpected = new Point(2.2,2.6);
+
+        assertEquals(pointActual.getX(),pointExpected.getX(),.0001);
+        assertEquals(pointActual.getY(),pointExpected.getY(),.0001);
+    }
 }

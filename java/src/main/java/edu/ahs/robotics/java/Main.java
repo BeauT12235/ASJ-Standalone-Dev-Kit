@@ -1,27 +1,37 @@
 package edu.ahs.robotics.java;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello World! I'm Beau!");
+       ArrayList<String> myList = new ArrayList<>();
 
-        //System.out.println(2>7);
+       myList.add("hello");
+      String message = myList.get(0);
+//
+//       myList.add("welcome");
+//       String message2 = myList.get(1);
+//
+//       myList.add("hi");
+//       String message3 = myList.get(2);
+//       System.out.println(myList.get(2));
+       // for (int i = 0; i < myList.get(); i++) {
 
-        //int num = 14/2;
-        //System.out.println(num);
+        }
 
-        //double thing =7.0/4;
-        //System.out.println(thing);
 
-        //Point a = new Point(0,-56);
 
-        //System.out.println(a.getX());
-        //System.out.println(a);
-//        System.out.println(a.distanceFromOrigin());
 
-//        System.out.println(a.getQuadrant());
+
+
+        //System.out.println(myList.toString());
+        //Collections.reverse(myList);
+        //System.out.println(myList);
+
+
+
+
+
 
     }
 
-
-
-}
