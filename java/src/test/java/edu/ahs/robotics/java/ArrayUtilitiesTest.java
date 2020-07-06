@@ -3,6 +3,7 @@ package edu.ahs.robotics.java;
 import org.junit.Test;
 
 import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class ArrayUtilitiesTest {
@@ -27,7 +28,7 @@ public class ArrayUtilitiesTest {
         integers.add(5);
         integers.add(15);
         integers.add(-23);
-        assertEquals(15, ArrayUtilities.maxValue(integers),.00001);
+        assertEquals(15, ArrayUtilities.maxValue(integers), .00001);
     }
 
     @Test

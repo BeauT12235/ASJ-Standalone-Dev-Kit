@@ -29,15 +29,15 @@ public class ArrayUtilities {
     }
 
     /**
-     * @param integers The list of numbers to search
+     * @param integers          The list of numbers to search
      * @param highNumberAllowed A limit value
      * @return an ArrayList containing all numbers lower than the specified limit value
      */
     public static ArrayList<Integer> lowerNumbers(ArrayList<Integer> integers, int highNumberAllowed) {
         int temp = 0;
-        ArrayList<Integer> lowerArrayList= new ArrayList<Integer>();
+        ArrayList<Integer> lowerArrayList = new ArrayList<Integer>();
         for (int i = 0; i < integers.size(); i++) {
-            if(integers.get(i)<highNumberAllowed){
+            if (integers.get(i) < highNumberAllowed) {
 
                 lowerArrayList.add(integers.get(i));
             }
