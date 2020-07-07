@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Path {
     private ArrayList<WayPoint> wayPoints;
     private double distanceOfPath;
+    private static WayPoint wayPoint;
 
     /**
      * @param rawPoints Array of X,Y points.  Duplicate points are discarded
@@ -39,7 +40,30 @@ public class Path {
         return distanceOfPath;
     }
 
+    public Path.WayPoint targetPoint(Point current, double distance) {
+        //1. Find the first waypoint in front of the robot
+        int i = 1;
+        while (wayPoints.get(i).componentAlongPath(current) < 0) {
+            i++;
+            if (i == wayPoints.size() - 1) {
+                return wayPoints.get(i);
+            }
+        }
+        //2. Find the first Waypoint in front of the Target Point and remaining distance
+        double remainingDistance = distance - wayPoints.get(i).componentAlongPath(current);
+        while (remainingDistance >= 0 && i < wayPoints.size()-1) {
+            i++;
+            remainingDistance -= wayPoints.get(i).distanceFromPrevious;
+             }
+        remainingDistance += wayPoints.get(i).distanceFromPrevious;
+        // 3. Interpolate
+        Point a = wayPoints.get(i-1).point;
+        Point b = wayPoints.get(i).point;
+        LineSegment targetLineSegment = new LineSegment(a,b);
+        Point target = targetLineSegment.interpolate(remainingDistance);
+        return new WayPoint(target,target.getX()-a.getX(),target.getY()-a.getY(),remainingDistance);
 
+    }
 
 
     public static class WayPoint {
@@ -73,21 +97,11 @@ public class Path {
             double dp = deltaXFromCurrent * deltaXFromPrevious + deltaYFromCurrent * deltaYFromPrevious;
             return dp / distanceFromPrevious;
         }
+
         /**
          * @return a point at the supplied distance along the path from the supplied current position
          * Note that the point will usually be interpolated between the points that originally defined the Path
          */
-        public Path.WayPoint targetPoint(Point current, double distance) {
-            int i = 1;
-            while (componentAlongPath(current)<0){
-                i++;
-            }
-            double remainingDistance = distance - componentAlongPath(current);
-            while (remainingDistance<0){
-                i++;
-                remainingDistance -= wayPoints.get(i).point.distanceFromPrevious;
-            }
-                return interpolatedRemDist;
-        }
+
     }
 }

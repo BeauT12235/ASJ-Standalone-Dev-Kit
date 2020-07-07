@@ -55,9 +55,11 @@ public class PathTest {
 
     @Test
     public void targetPoint() {
+        Point current = new Point(0,0);
+        double distance = 1.5;
         Point[] points = new Point[]{new Point(0,0), new Point(0,1), new Point(0,2)};
         Path path = new Path(points);
         Point targetPoint = new Point(0,1.5);
-        assertEquals(targetPoint, interpolatedRemDist, .0001);
+        assertEquals(targetPoint, path.targetPoint(current, distance).point);
     }
 }

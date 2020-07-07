@@ -3,8 +3,8 @@ package edu.ahs.robotics.java;
 import java.util.Objects;
 
 public class Point {
-    private double x;
-    private double y;
+    public double x;
+    public double y;
 
     public double getX() {
         return x;
