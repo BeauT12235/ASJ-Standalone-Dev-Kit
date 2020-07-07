@@ -6,6 +6,8 @@ public class Path {
     private ArrayList<WayPoint> wayPoints;
     private double distanceOfPath;
     private static WayPoint wayPoint;
+    public double distanceFromStart;
+    public double distanceFromEnd;
 
     /**
      * @param rawPoints Array of X,Y points.  Duplicate points are discarded
@@ -25,6 +27,10 @@ public class Path {
             if (distance > 0) {
                 wayPoints.add(new WayPoint(wayPointPoint, deltaX, deltaY, distance));
                 distanceOfPath += distance;
+                for (int j = 0; j < distanceFromStart; j++) {
+
+
+                }
             }
         }
     }
@@ -41,7 +47,7 @@ public class Path {
     }
 
     public Path.WayPoint targetPoint(Point current, double distance) {
-        //1. Find the first waypoint in front of the robot
+        //1. Find the first wayPoint in front of the robot
         int i = 1;
         while (wayPoints.get(i).componentAlongPath(current) < 0) {
             i++;
