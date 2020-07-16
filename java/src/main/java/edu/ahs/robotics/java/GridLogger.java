@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class GridLogger {
+
+
     private boolean firstRow = true;
 
     private HashSet<String> categorySet;
@@ -13,11 +15,16 @@ public class GridLogger {
     private HashMap<String, String> rowValues;
 
     private LogWriter writer;
+    private Clock clock;
 
-    public GridLogger(LogWriter writer) {
+
+    public GridLogger(LogWriter writer, Clock clock) {
         this.writer = writer;
+        this.clock = clock;
+        clock.reset();
         categorySet = new HashSet<>();
         rowValues = new HashMap<>();
+        categories.add("Time");
 
     }
 
@@ -55,7 +62,9 @@ public class GridLogger {
             writer.writeLine(header.toString());
             firstRow = false;
         }
+        //Update the time
 
+        rowValues.put("Time",Long.toString(clock.getCurrentTimeMillis()));
         StringBuffer valueRow = new StringBuffer();
         for (int i = 0; i < categories.size(); i++) {
             String category = categories.get(i);
